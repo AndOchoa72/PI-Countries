@@ -5,10 +5,10 @@ const { getCountries,
 
 const countryRouter = Router();
 
-//* Lista de Paises, todos ó segun Name
+//* List Countries, all or by Name
 countryRouter.get("/", getCountries);
 
-//* Detalle de un solo Pais, con sus Activities
-countryRouter.get("/:idPais", getCountryById);
+//* One Country detail, with all its Activities
+countryRouter.get("/:id", getCountryById);
 
 module.exports = countryRouter;

@@ -5,29 +5,29 @@ const getCountries = (req, res) =>{
     let myName = req.query.name;
     if (myName !== undefined) {
 
-        //* Filtra segun Name
-        //* Ignora Case
-        //* Si no hay, Mensaje adecuado
+        //* Filters by Name
+        //* Ignores Case
+        //* If no matches, then Message
 
         console.log(`Name=${myName}`);
         res.status(200).send(
-            `NIY: Doy Countries segun Name: `
+            `NIY: List Countries by Name: `
             + myName);
 
         } else {
 
-        //* Devuelvo Array con todos los Countries
+        //* Return Array with all the Countries
 
-        res.status(200).send('NIY: Doy todos los Countries');
+        res.status(200).send('NIY: List all Countries');
 
         };
 };
 
 const getCountryById = (req, res) => {
-    //* Detalle de un solo Pais, con sus Activities
+    //* One Country detail, with all its Activities
 
-    let idPais = req.params.idPais;
-    res.status(200).send('NIY: Doy un Country y sus Activities: ' + idPais);
+    let { id } = req.params;
+    res.status(200).send('NIY: Detail one Country and its Activities: ' + id);
 };
 
 module.exports = {

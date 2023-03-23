@@ -2,18 +2,18 @@
 
 const getActivities = (req, res) => {
 
-    //* Devuelvo un Array con todas las Actividades
+    //* Return Array with all the Activities
 
-    res.status(200).send('NIY: Doy todas las Activities');
+    res.status(200).send('NIY: list all Activities');
 
 };
 
 const createActivity = (req, res) => {
 
-    //* Recibo todos los datos necesarios para crear una nueva Activity
+    //* Create a new Activity
     console.log(req.body);
     const { data } = req.body;
-    res.status(200).send(`Posteo una nueva Activity:
+    res.status(200).send(`Post a new Activity:
     data: ${data}`);
 
 };
