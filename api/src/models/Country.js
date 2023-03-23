@@ -3,8 +3,12 @@ const { DataTypes } = require('sequelize');
 // Luego le injectamos la conexion a sequelize.
 module.exports = (sequelize) => {
   // defino el modelo
-  sequelize.define('country', {
-    name: {
+  sequelize.define('Country', {
+    id: {
+      type: DataTypes.STRING,
+      primaryKey: true,
+    },
+    Name: {
       type: DataTypes.STRING,
       allowNull: false,
     },
