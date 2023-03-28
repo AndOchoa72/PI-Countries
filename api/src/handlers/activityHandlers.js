@@ -1,6 +1,7 @@
 //* activityHandler.js
+const { createActivity } = require('../controllers/activityController.js');
 
-const getActivities = (req, res) => {
+const getActivitiesHandler = (req, res) => {
 
     //* Return Array with all the Activities
 
@@ -8,17 +9,24 @@ const getActivities = (req, res) => {
 
 };
 
-const createActivity = (req, res) => {
-
+const createActivityHandler = async (req, res) => {
     //* Create a new Activity
-    console.log(req.body);
-    const { data } = req.body;
-    res.status(200).send(`Post a new Activity:
-    data: ${data}`);
-
+    try { 
+        console.log(req.body);
+        const { name, description, difficulty,
+            duration, season } = req.body;
+    //    res.status(200).send(`Post a new Activity:
+    //    name: ${name}`);
+        const newActiv = await createActivity(
+            name, description, difficulty,
+            duration, season );
+        res.status(201).json(newActiv);
+    } catch (error) {
+        res.status(400).json({ error: error.message });
+    };
 };
 
 module.exports = {
-    getActivities,
-    createActivity
+    getActivitiesHandler,
+    createActivityHandler
 };

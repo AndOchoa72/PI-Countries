@@ -22,9 +22,9 @@ const { conn } = require('./src/db.js');
 const miApp = require('./src/miApp.js');
 
 // Syncing all the models at once.
-conn.sync({ force: true }).then(() => {
+conn.sync({ alter: true }).then(() => {
   server.listen(3001, () => {
     console.log('API listening at 3001'); // eslint-disable-line no-console
-// *    miApp();
+    miApp();
   });
 });

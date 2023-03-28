@@ -1,4 +1,4 @@
-var allCountries = [
+var allCountriesLocalFile = [
   {
     "name": {
       "common": "Aruba",
@@ -47606,4 +47606,4 @@ var allCountries = [
   }
 ];
 
-module.exports = allCountries;
+module.exports = { allCountriesLocalFile };
