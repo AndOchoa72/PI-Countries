@@ -72,6 +72,7 @@ typings/
 .env
 .env.test
 ReadmePsql.txt.js
+settings.json
 
 # parcel-bundler cache (https://parceljs.org/)
 .cache

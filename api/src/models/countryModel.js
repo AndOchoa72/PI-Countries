@@ -27,11 +27,11 @@ module.exports = (sequelize) => {
     },
     capital: {
       type: DataTypes.STRING,
-      allowNull: false
+      defaultValue: 'None Assigned'
     },
     subregion: {
       type: DataTypes.STRING,
-      allowNull: false
+      defaultValue: 'None Assigned'
     },
     area: {
       type: DataTypes.DOUBLE,

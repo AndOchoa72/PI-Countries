@@ -1,20 +1,15 @@
 const { Activity} = require("../db.js");
 
 const createActivity = async (name,
-    description, difficulty,
-    duration, season) =>
-    await Activity.create({
-        name: name,
-        description: description,
-        difficulty: difficulty,
-        duration: duration,
-        season: season
-    });
+  description, difficulty,
+  duration, season) => {
+  return await Activity.create({
+    name, description,
+    difficulty, duration, season }
+)};
 
 const getAllActivities = async () => {
-    const DBActivities = await Activity.findAll();
-    return DBActivities;
+  return await Activity.findAll();
 };
-    
 
 module.exports = { createActivity, getAllActivities };

@@ -2,6 +2,7 @@ require('dotenv').config();
 const { Sequelize } = require('sequelize');
 const CountryMdl = require('./models/countryModel.js');
 const ActivityMdl = require('./models/activityModel.js');
+const CountActivMdl = require('./models/countactivModel.js');
 
 const fs = require('fs');
 const path = require('path');
@@ -23,6 +24,7 @@ const modelDefiners = [];
 
 CountryMdl(sequelize);
 ActivityMdl(sequelize);
+CountActivMdl(sequelize);
 
 //console.log(sequelize.models);
 
@@ -44,9 +46,16 @@ sequelize.models = Object.fromEntries(capsEntries);
 
 // En sequelize.models están todos los modelos importados como propiedades
 // Para relacionarlos hacemos un destructuring
-const { Country, Activity }  = sequelize.models;
+const { Country, Activity, CountActiv }  = sequelize.models;
 
 // Aca vendrian las relaciones
+
+Country.belongsToMany(Activity, { through: 'CountActiv' });
+Activity.belongsToMany(Country, { through: 'CountActiv' });
+Country.hasMany(CountActiv);
+CountActiv.belongsTo(Country);
+Activity.hasMany(CountActiv);
+CountActiv.belongsTo(Activity);
 // Product.hasMany(Reviews);
 
 /*

@@ -12,7 +12,7 @@ module.exports = (sequelize) => {
     );
 
   sequelize.define('Activity', {
-    Id: {
+    id: {
       type: DataTypes.INTEGER,
       primaryKey: true,
       autoIncrement: true

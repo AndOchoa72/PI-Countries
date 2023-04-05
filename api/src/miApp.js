@@ -18,7 +18,10 @@ var t0, tf = 0;
 const miDelay = (msg) => {
     tf = performance.now();
     if (miLog) {
-    console.log('\\==> ' + msg + ' DT: ' + (tf - t0).toFixed(0) + ' ms.')};
+    console.log('\\==> ' + msg + 
+        //' DT: ' +
+        ': ' +
+        (tf - t0).toFixed(0) + ' ms.')};
     t0 = tf;
 };
 
@@ -28,6 +31,29 @@ const miApp = async () => {
     t0 = performance.now();
     t00 = t0;
 
+/* //todo: Retrieving in Raw mode begin:
+
+from GitHub - Sequelize:
+
+https://github.com/sequelize/sequelize/issues/12188
+
+The only thing that work:
+
+const users = await User.findAll({
+    attributes: [
+      'id',
+      'status'
+    ],
+    order: [['status', 'DESC']],
+    include: join,
+    raw: true
+  });
+  ABCDEFGHIJKLMNOPQRSTUVWXYZ
+  12345678901234567890123456
+  26 * 26 = 676
+  676 * 26 = 17576
+ //*todo: Retrieving in Raw mode end:
+  */
     cca = await Activity.count();
     if (miLog) {console.log(`There are ${cca} activities`)};
     miDelay('Counting Activities');
@@ -57,8 +83,9 @@ const miApp = async () => {
 
             // * Read JSON from local file: V V V
 
-            const { allCountriesLocalFile } = require('./allCountries.json.js');
+            var { allCountriesLocalFile } = require('./allCountries.json.js');
             allCountriesRaw = allCountriesLocalFile;
+            allCountriesLocalFile = '';
             miDelay('Reading from Local JSON File');
         }
 
@@ -67,8 +94,7 @@ const miApp = async () => {
         t0 = performance.now();
         cca = allCountriesRaw.length;
         for (let n = 0; n < cca; n++) {
-            const co = allCountriesRaw[n];
-            await createCountry(co);
+            await createCountry(allCountriesRaw[n]);
         }; 
         miDelay('Saving Countries into DataBase');
 

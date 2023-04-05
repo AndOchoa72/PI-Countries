@@ -1,9 +1,11 @@
 const { Router } = require('express');
 const { getActivitiesHandler,
-        createActivityHandler
-    } = require('../handlers/activityHandlers.js');
+  createActivityHandler
+  } = require('../handlers/activityHandler.js');
 
 const activRouter = Router();
+
+console.log('Acivities...');
 
 //* List all Activities
 activRouter.get("/", getActivitiesHandler);
