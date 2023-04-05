@@ -1,7 +1,7 @@
 //* countryHandler.js
 
 const { getAllCountries, getCountryById, getCountriesByName
-  } = require("../controllers/countryController");
+  } = require("../4controllers/countryController");
 
   const getCountriesHandler = async (req, res) =>{
 

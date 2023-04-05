@@ -1,8 +1,8 @@
 require('dotenv').config();
 const { Sequelize } = require('sequelize');
-const CountryMdl = require('./models/countryModel.js');
-const ActivityMdl = require('./models/activityModel.js');
-const CountActivMdl = require('./models/countactivModel.js');
+const CountryMdl = require('./1models/countryModel.js');
+const ActivityMdl = require('./1models/activityModel.js');
+const CountActivMdl = require('./1models/countactivModel.js');
 
 const fs = require('fs');
 const path = require('path');
