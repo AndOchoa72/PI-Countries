@@ -7,13 +7,13 @@ const { createCountry } = require('./4controllers/countryController.js');
 
 var miLog = true;
 // todo:  Si quiero mostrar registros, Comento:
-/*
+//*
 miLog = !miLog;
 // */
 // delete from countries where id = 'ARG';
 // select count (*) from countries;
 
-var t0, tf = 0;
+var t0 = 0; // tf
 
 const miDelay = (msg) => {
     tf = performance.now();
@@ -103,6 +103,8 @@ const users = await User.findAll({
 
         miDelay('Counting Countries');
         };
+    t0 = t00;
+    miDelay('Total Time');
     };
 
 module.exports = miApp;

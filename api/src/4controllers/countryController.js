@@ -2,6 +2,8 @@ const { Country, Activity} = require("../db.js");
 const { Op } = require("sequelize");
 
 const createCountry = async (co) => {
+  if (!co.capital) co.capital = ['None-assigned'];
+  if (!co.subregion) co.subregion = 'None-assigned';
   await Country.create({
     id: co.cca3.toUpperCase(),
     name: co.name.official,
@@ -54,5 +56,8 @@ const getCountriesByName = async ( myName ) => {
   return namedCountries;
 };
 
-module.exports = { createCountry, getCountryById,
-  getCountriesByName, getAllCountries };
+module.exports = {
+  createCountry,
+  getAllCountries,
+  getCountryById,
+  getCountriesByName };

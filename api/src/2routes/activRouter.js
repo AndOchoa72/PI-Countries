@@ -5,12 +5,16 @@ const {
   getActivityByIdHandler } =
   require('../3handlers/activityHandler.js');
 
+const {
+  valActCreate } =
+  require('../5middlewares/activMidlWr.js');
+
 const activRouter = Router();
 
-console.log('Acivities...');
+//console.log('Router Activities...');
 
 //* Create new Activity
-activRouter.post("/", createActivityHandler);
+activRouter.post("/", valActCreate, createActivityHandler);
 
 //* List all Activities
 activRouter.get("/", getActivitiesHandler);
