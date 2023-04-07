@@ -1,38 +1,38 @@
 import Country from '../Country/Country.jsx';
 import style from './CountriesContainer.module.css';
+import { useSelector } from 'react-redux';
 
+/*
 var { allCountriesLocalFile } =
   require('../../allCountries.json.js');
 
 var allCountriesRaw = allCountriesLocalFile.slice(0,10);
 
 allCountriesLocalFile = '';
-
-// todo Clase 4, 1hr 10min
+*/
+// TODO: Clase 5, 22 min
 
 const CountriesContainer = () => {
+
+  const allCountries = useSelector(
+        state => state.allCountries
+        );
+
   return(
     <div className={style.coContainer}>
-      {allCountriesRaw.map(co => {
+      {allCountries?.map(co => {
         console.log(JSON.stringify(co));
         return <Country
-          key={co.cca3}
-          id={co.cca3}
-          name={co.name.common}
+          key={co.id}
+          id={co.id}
+          name={co.name}
           flag={co.flag}
-          continent={co.continents[0]}
+          continent={co.continent}
           capital={co.capital}
         />
       })}
     </div>
   )
 };
-/*
-          
-          id={co.id}
-          name={co.name}
-          flag={co.flag}
-          continent={co.continent}
-          capital={co.capital}
-*/
+
 export default CountriesContainer;
