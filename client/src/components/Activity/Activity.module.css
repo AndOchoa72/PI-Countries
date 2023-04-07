@@ -1,0 +1,7 @@
+.anActivity{
+  width: fit-content;
+  height: fit-content;
+  border-radius: 10px;
+  border: 2px solid crimson;
+  background-color: darksalmon;
+}

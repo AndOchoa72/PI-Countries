@@ -1,0 +1,9 @@
+.acContainer{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  border-radius: 10px;
+  border: 2px solid DarkOliveGreen;
+  background-color: LightGreen;
+}
