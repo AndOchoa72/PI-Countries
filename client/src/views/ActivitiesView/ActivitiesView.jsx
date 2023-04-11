@@ -1,11 +1,11 @@
-import './Activities.module.css';
+import './ActivitiesView.module.css';
 import ActivitiesContainer from
 '../../components/ActivitiesContainer/ActivitiesContainer.jsx';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { getActivities } from '../../redux/actions';
 
-const Activities = () => {
+const ActivitiesView = () => {
   
   const dispatch = useDispatch();
 
@@ -21,4 +21,4 @@ const Activities = () => {
   )
 };
 
-export default Activities;
+export default ActivitiesView;

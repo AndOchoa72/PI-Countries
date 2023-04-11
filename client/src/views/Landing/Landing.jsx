@@ -1,10 +1,14 @@
-import './Landing.module.css';
+import React from 'react';
+import { Link } from 'react-router-dom';
+import style from './Landing.module.css';
 
 const Landing = () => {
   return (
-    <>
-      <h1>This is the Landing view</h1>
-    </>
+    <Link to = '/home'>
+      <div className={style.aLanding}>
+          <h1>Ingresar a Countries!</h1>
+      </div>
+    </Link>
   )
 };
 

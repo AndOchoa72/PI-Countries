@@ -1,4 +1,4 @@
-import Activity from '../Activity/Activity.jsx';
+import ActivityCard from '../ActivityCard/ActivityCard.jsx';
 import style from './ActivitiesContainer.module.css';
 import { useSelector } from 'react-redux';
 
@@ -9,9 +9,9 @@ const ActivitiesContainer = () => {
 
   return(
     <div className={style.acContainer}>
-      {allActivities?.map(ac => {
+      {allActivities.map(ac => {
 //        console.log(JSON.stringify(ac));
-        return <Activity
+        return <ActivityCard
           key={'act' + ac.id}
           id={ac.id}
           name={ac.name}

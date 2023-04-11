@@ -6,4 +6,8 @@
   border-radius: 10px;
   border: 2px solid DarkOliveGreen;
   background-color: LightGreen;
+};
+.miDivSep{
+  display: inline-block;
+  position: absolute;
 }

@@ -1,11 +1,11 @@
-import './Countries.module.css';
+import './CountriesView.module.css';
 import CountriesContainer from
 '../../components/CountriesContainer/CountriesContainer.jsx';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { getCountries } from '../../redux/actions';
 
-const Countries = () => {
+const CountriesView = () => {
 
   const dispatch = useDispatch();
 
@@ -21,4 +21,4 @@ const Countries = () => {
   )
 }
 
-export default Countries;
+export default CountriesView;

@@ -1,7 +1,12 @@
-import { Route, useLocation } from 'react-router-dom';
-import { Landing, Countries, Activities, ActivForm }
+import { Route, useLocation, Redirect, Switch } from 'react-router-dom';
+import { Landing, CountriesView, CountryDetail,
+  ActivitiesView, ActivityDetail, ActivForm }
   from './views/views.js';
 import NavBar from './components/NavBar/NavBar.jsx';
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { getCountries,  getActivities } from './redux/actions.js';
+
 /*
 Rutas:        Nombre    Funcion
 /             Landing
@@ -14,30 +19,52 @@ Rutas:        Nombre    Funcion
 import './App.css';
 
 function App() {
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    console.log('App usingEffect.');
+    dispatch(getCountries());
+    dispatch(getActivities());
+  }, [dispatch]);
+
   return (
     <div className="App">
-      <h1>PI Henry Countries by Andres Ochoa</h1>
+      <h1>Henry PI Countries by Andres Ochoa</h1>
         {useLocation().pathname !== '/' && <NavBar />}
-        <Route
-          exact path='/' render={() =>
-          <Landing
-          />}
-        />
-        <Route
-          path='/home' render={() =>
-          <Countries
-          />}
-        />
-        <Route
-          path='/activities' render={() =>
-          <Activities
-          />}
-        />
-        <Route
-          path='/activity' render={() =>
-          <ActivForm
-          />}
-        />
+        <Switch>
+          <Route
+            exact path='/' render={() =>
+            <Landing
+            />}
+          />
+          <Route
+            path='/home' render={() =>
+            <CountriesView
+            />}
+          />
+          <Route 
+            path='/country/:coid' render={() =>
+            <CountryDetail
+            />}
+          />
+          <Route
+            path='/activities' render={() =>
+            <ActivitiesView
+            />}
+          />
+          <Route
+            path='/activity' render={() =>
+            <ActivityDetail
+            />}
+          />
+          <Route
+            path='/form' render={() =>
+            <ActivForm
+            />}
+          />
+          <Redirect to="/home" />
+        </Switch>
     </div>
   );
 }

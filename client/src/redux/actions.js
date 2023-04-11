@@ -8,7 +8,9 @@ export const GET_ACTIVITY = 'GET_ACTIVITY';
 export const GET_ACTIVITIES = 'GET_ACTIVITIES';
 
 export const getCountry = (id) => {
+  console.log('Reading Country: '+ id);
   return async function (dispatch) {
+//    console.log('get1Country:'+id);
     const apiData = await axios.get(
       `http://localhost:3001/countries/${id}`
     );
@@ -18,6 +20,7 @@ export const getCountry = (id) => {
 };
 
 export const getCountries = () => {
+  console.log('Reading Countries.');
   return async function (dispatch) {
     const apiData = await axios.get(
       'http://localhost:3001/countries'
@@ -28,6 +31,7 @@ export const getCountries = () => {
 };
 
 export const getActivity = (id) => {
+  console.log('Reading Activity: ' + id);
   return async function (dispatch) {
     const apiData = await axios.get(
       `http://localhost:3001/activities/${id}`
@@ -38,6 +42,7 @@ export const getActivity = (id) => {
 };
 
 export const getActivities = () => {
+  console.log('Reading Activities.');
   return async function (dispatch) {
     const apiData = await axios.get(
       'http://localhost:3001/activities'

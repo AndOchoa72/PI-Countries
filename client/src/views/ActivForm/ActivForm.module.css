@@ -1,0 +1,43 @@
+:root{
+  --myBColOk: black;
+  --myBColErr: crimson;
+  --myBWidOk: 1px;
+  --myBWidErr: 2px;
+  --myBOk: var(--myBWidOk) solid var(--myBColOk);
+  --myBErr: var(--myBWidErr) solid var(--myBColErr);
+}
+.bordErr{
+  border: var(--myBErr);
+}
+.anActivForm{
+  border-radius: 10px;
+  background-color: PaleGoldenRod;
+}
+.divName{
+  border-radius: 10px;
+}
+.divDescri{
+  border-radius: 10px;
+}
+.divTripleOut{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 10px;
+}
+.divTripleIn{
+  grid-template-columns: 1fr 1fr 1fr;
+  border-radius: 10px;
+}
+.divDifficul{
+  grid-template-columns: 1fr;
+  border-radius: 10px;
+}
+.divDuration{
+  grid-template-columns: 1fr;
+  border-radius: 10px;
+}
+.divSeason{
+  grid-template-columns: 1fr;
+  border-radius: 10px;
+}

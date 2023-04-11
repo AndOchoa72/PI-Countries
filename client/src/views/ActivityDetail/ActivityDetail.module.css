@@ -1,0 +1,9 @@
+.anActivityDetail{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  height: fit-content;
+  border-radius: 10px;
+  border: 2px solid crimson;
+  background-color: LightYellow;
+}

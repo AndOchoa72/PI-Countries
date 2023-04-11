@@ -1,4 +1,4 @@
-import Country from '../Country/Country.jsx';
+import CountryCard from '../CountryCard/CountryCard.jsx';
 import style from './CountriesContainer.module.css';
 import { useSelector } from 'react-redux';
 
@@ -9,15 +9,15 @@ const CountriesContainer = () => {
 
   return(
     <div className={style.coContainer}>
-      {allCountries?.map(co => {
+      {allCountries.map(co => {
 //        console.log(JSON.stringify(co));
-        return <Country
+        return <CountryCard
           key={co.id}
           id={co.id}
           name={co.name}
           flag={co.flag}
           continent={co.continent}
-          capital={co.capital}
+//          capital={co.capital}
         />
       })}
     </div>
