@@ -7,19 +7,19 @@ import { useDispatch } from 'react-redux';
 const CountryCard = (co) => {
   const dispatch = useDispatch();
   return(
-    <Link to = {`/country/${co.id}`} >
+    <Link className={style.aCountryLink} to = {`/country/${co.id}`} >
       <div className={style.aCountryCard}
         onClick={() => {
           dispatch(getCountry(co.id))}}>
         {//<p>Id: {co.id}</p>
         }
-        <h1>{co.name}</h1>
-        <img 
+        <div className={style.myCardDiv} >
+          <h3 className={style.myCardH } >{co.name}</h3>
+        </div>
+        <img className={style.myCardImg}
           src={co.flag}
-          alt={`Flag of ${co.name}`}
-          width={160} height={100}
-         />
-        <p>cont: {co.continent}</p>
+          alt={`Flag of ${co.name}`}/>
+        <p>{co.continent}</p>
         {//<p>cap: {co.capital}</p>
         }
       </div>

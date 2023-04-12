@@ -14,6 +14,13 @@ Rutas:        Nombre    Funcion
 /country/ccc  country   (Detalle Country c Preview Activities)
 /activities   activmgr  (Lista Activities c/s Preview Countries + FormCreate)
 /activity/nn  activity  (Detalle Activity c Preview Countries + FormEdit)
+
+Downloaded  CountriesView
+Filtered    CountryFilter
+Searched    CountrySearch
+Ordered     CountryOrder
+Paginated   CountryPage
+
 */
 
 import './App.css';

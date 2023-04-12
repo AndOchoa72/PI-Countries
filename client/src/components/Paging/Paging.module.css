@@ -1,0 +1,18 @@
+.paging{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding: 2px;
+  border-radius: 10px;
+  border: 1px solid DarkOliveGreen;
+  background-color: LightGreen;
+}
+.number{
+  list-style-type: none;
+  cursor: pointer;
+  margin: 2px;
+  padding: 2px 4px;
+  border-radius: 10px;
+  border: 1px solid DarkOliveGreen;
+  background-color: LightGreen;
+}

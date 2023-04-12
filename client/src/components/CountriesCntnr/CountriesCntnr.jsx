@@ -1,15 +1,11 @@
 import CountryCard from '../CountryCard/CountryCard.jsx';
 import style from './CountriesContainer.module.css';
-import { useSelector } from 'react-redux';
 
-const CountriesContainer = () => {
-
-  const allCountries =
-    useSelector( state => state.allCountries );
+const CountriesContainer = ({pagedCountries}) => {
 
   return(
     <div className={style.coContainer}>
-      {allCountries.map(co => {
+      {pagedCountries.map(co => {
 //        console.log(JSON.stringify(co));
         return <CountryCard
           key={co.id}
