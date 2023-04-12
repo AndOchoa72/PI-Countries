@@ -4,8 +4,9 @@
 const valActCreate = (req, res, next) => {
 //  console.log('Validator ActCreate.');
   const { name, description, difficulty, duration, season } = req.body;
-  if (typeof name === undefined)
-    return res.status(400).json({ error: 'Missing Name.' });
+//  console.log(req.body);
+  if (typeof name === 'undefined') {
+    return res.status(400).json({ error: 'Missing Name.' });}
   if (typeof description === 'undefined')
     return res.status(400).json({ error: 'Missing Description.' });
   if (typeof difficulty === 'undefined')

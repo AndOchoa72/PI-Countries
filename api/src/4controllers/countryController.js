@@ -6,7 +6,8 @@ const createCountry = async (co) => {
   if (!co.subregion) co.subregion = 'None-assigned';
   await Country.create({
     id: co.cca3.toUpperCase(),
-    name: co.name.official,
+    name: co.name.common,
+    nameformal: co.name.official,
     flag: co.flags[1],
     continent: co.continents[0],
     capital: co.capital[0],
@@ -17,7 +18,9 @@ const createCountry = async (co) => {
 };        
 
 const getAllCountries = async () => {
-  const bDCountries = await Country.findAll();
+  const bDCountries = await Country.findAll({
+    order: ['id']
+  });
   return bDCountries;
 };
 
@@ -38,6 +41,11 @@ const getCountriesByName = async ( myName ) => {
       {
         [ Op.or ]: [
           {name:
+            {
+              [Op.iLike]: `%${myName}%`
+            }
+          },
+          {nameformal:
             {
               [Op.iLike]: `%${myName}%`
             }
