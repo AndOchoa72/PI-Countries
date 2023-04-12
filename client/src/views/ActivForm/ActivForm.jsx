@@ -59,76 +59,60 @@ const ActivForm = () => {
   };
 
   const validate = (newform) => {
-    // eslint-disable-next-line
-    //const regx = new RegExp("/^([A-Za-z])[A-Za-z]{3}", "gi");
-//    console.log(newform);
-
     // Analizo name
     if (newform.name === '') {
-//      console.log('Name is Empty.');
-//      console.log(myerrs);
-//      console.log({...myerrs, name: 'Name is Empty.'});
       myerrs.name = 'Name is Empty.';
     } else if ( newform.name.length < 4){
-//      console.log('Name too Short.');
       myerrs.name = 'Name too Short.';
     } else {
-//      console.log('Name Ok.');
       myerrs.name = '';
     }
 
     // Analizo Description
-//    console.log(newform);
     if (newform.description === '') {
-//      console.log('Description is Empty.');
       myerrs.description = 'Description is Empty.';
     } else if (newform.description.length < 6) {
-//      console.log('Description too Short.');
       myerrs.description = 'Description too Short.';
     } else {
-//      console.log('Description Ok.');
       myerrs.description = '';
     }
 
     // Analizo Difficulty
     if(newform.difficulty < 1) {
-//      console.log('Difficulty must be greater than 0.');
       myerrs.difficulty = 'Difficulty must be greater than 0.';
     } else if (newform.difficulty.value > 5) {
-//      console.log('Difficulty must be lower than 6.');
       myerrs.difficulty = 'Difficulty must be lower than 6.';
     } else {
-//      console.log('Difficulty Ok.');
       myerrs.difficulty = '';
     }
 
     // Analizo Season
     if(newform.season < 1) {
-//      console.log('Season must be greater than 0.');
       myerrs.season = 'Season must be greater than 0.';
     } else if (newform.season.value > 4) {
-//      console.log('Season must be lower than 5.');
       myerrs.season = 'Season must be lower than 5.';
     } else {
-//      console.log('Season Ok.');
       myerrs.season = '';
     }
 
     // Analizo Duration
     if(newform.duration === 0) {
-//      console.log('Duration must be greater than 0.');
       myerrs.duration = 'Duration must be greater than 0.';
     } else {
-//      console.log('Duration Ok.');
       myerrs.duration = '';
     }
 
-//    console.log(errs);
-//    console.log(myerrs);
-//    console.log({...errs, ...myerrs});
     setErrs    ({...errs, ...myerrs});
   };
 
+  const BlockedToPost = () => {
+    validate(form);
+    return ( (myerrs.name !== '') ||
+      (myerrs.description !== '') ||
+      (myerrs.difficulty !== '')  ||
+      (myerrs.duration !== '')    ||
+      (myerrs.season !== '')    );
+  };
 
   const submitHndlr = (event) => {
     event.preventDefault();
@@ -136,6 +120,11 @@ const ActivForm = () => {
     console.log(form);
     console.log(registro);
     registro = [];
+    if (BlockedToPost()) {
+      alert('Must comply with all conditions.');
+      return;
+    } else {
+      alert('Posting!!!');
     /*
     axios.post('http://localhost:3001/activities', form)
          .then(res => {
@@ -149,13 +138,14 @@ const ActivForm = () => {
             alert(err);
             });
             */
+    };
   };
 
   return (
     <form
       className={style.anActivForm}
       onSubmit={submitHndlr}>
-      <h1>This is the ActivForm view</h1>
+      <h2>Create Activity</h2>
 
         <div className={style.divName}>
           <label >Name: </label>

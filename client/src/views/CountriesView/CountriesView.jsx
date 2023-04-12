@@ -1,7 +1,7 @@
 import './CountriesView.module.css';
 import CountriesContainer from
 '../../components/CountriesCntnr/CountriesCntnr.jsx';
-import SearchBar from '../../components/SearchBar/SearchBar.jsx';
+import MegaBar from '../../components/MegaBar/MegaBar.jsx';
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getCountries } from '../../redux/actions';
@@ -31,7 +31,7 @@ const CountriesView = () => {
   return (
     <>
       <h1>This is the Countries Home view</h1>
-      <SearchBar />
+      <MegaBar />
       <Paging 
         countriesPerPage={countriesPerPage}
         allCountries={srchdCountries.length}
